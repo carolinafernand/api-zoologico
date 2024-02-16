@@ -1,51 +1,58 @@
-import { Habitat } from "./Habitat";
+import { Habitat } from "./Habitat"; 
 
 export class Atracao {
-    private nome: string;
-    private lista_de_habitat: Habitat[];
-  
-    constructor(_nome: string, _lista_de_habitat: Habitat[]) {
-      this.nome = _nome;
-      this.lista_de_habitat = _lista_de_habitat;
+    private nome: string; /*
+                            Propriedade privada para armazenar o nome da atração
+                          */
+    private listas_de_habitat: Habitat/*
+                                        Propriedade privada para armazenar a lista de habitats da atração
+                                      */
+    constructor(_nome: string, _listas_de_habitat: Habitat) {
+
+        /*
+             * Construtor da classe Atracao.
+             *
+             * @param _nome - O nome da atração.
+             * @param _listas_de_habitat - A lista de habitats da atração.
+             */
+
+        this.nome = _nome; /*
+                            Inicializa o nome da atração com o valor fornecido
+                           */
+        this.listas_de_habitat = _listas_de_habitat; /*
+                                                        Inicializa a lista de habitats da atração com o valor fornecido
+                                                     */
     }
 
-
-    /**
-     * Retorna o nome da Atracao.
-     * 
-     * @returns O nome da Atracao.
-     */
-
+    /* Retorna o nome da atração.
+    *
+    * @returns O nome da atração.
+    */
     public getNome(): string {
-      return this.nome;
-    }
-  
-
-     /**
-      * Define o nome da Atracao
-      * 
-      * @param _nome 
-      */
-    public setNome(_nome: string): void {
-      this.nome = _nome;
+        return this.nome
     }
 
-  /**
-     * Retorna a lista de habitat.
-     * 
-     * @returns Lista_de_animais.
+    /* Define o nome da atração.
+     *
+     * @param _nome - O novo nome da atração.
      */
-    public getLista_de_habitat(): Habitat[] {
-      return this.lista_de_habitat;
+    public setNome(_nome: string): void {
+        this.nome = _nome;
     }
 
+    /* Retorna a lista de habitats da atração.
+   *
+   * @returns A lista de habitats da atração.
+   */
+    public getLista_de_habitat(): Habitat {
+        return this.listas_de_habitat
+    }
 
-   /**
-      * Define o nome do habitat
-      * 
-      * @param _lista_de_habitat
-      */
-    public setLista_de_habitat(_lista_de_habitat: Habitat[]): void {
-      this.lista_de_habitat = _lista_de_habitat;
+    /* Define a lista de habitats da atração.
+   *
+   * @param _listas_de_habitat - A nova lista de habitats da atração.
+   */
+    public setLista_de_habitat(_listas_de_habitat: Habitat): void {
+        this.listas_de_habitat = _listas_de_habitat;
     }
 }
