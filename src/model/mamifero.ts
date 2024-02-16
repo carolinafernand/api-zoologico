@@ -14,8 +14,8 @@ export class Mamifero extends Animal {
      * @param _raca A raça do mamífero.
      */
     constructor(_nome: string, _idade: number, _genero: string, _raca: string) {
-        super(_nome, _idade, _genero); /* Chama o construtor da classe Animal para inicializar os atributos herdados.*/
-        this.raca = _raca; /* Inicializa a raça do mamífero.*/
+        super(_nome, _idade, _genero); 
+        this.raca = _raca; 
     }
 
     /**
@@ -34,4 +34,3 @@ export class Mamifero extends Animal {
         this.raca = _raca;
     }
 }
-
