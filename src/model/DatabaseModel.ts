@@ -13,7 +13,7 @@ export class DatabaseModel {
         this._config = {
             user: 'postgres',
             host: 'localhost',
-            database: 'zoologico',
+            database: 'zoologico ',
             password: 'admin',
             port: 5432,
             max: 10,

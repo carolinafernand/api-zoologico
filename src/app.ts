@@ -6,6 +6,7 @@ import { Reptil } from './model/Reptil';
 import { Habitat } from './model/Habitat';
 import { Atracao } from './model/Atracao';
 import { Zoologico } from './model/Zoologico';
+import { DatabaseModel } from './model/DatabaseModel';
 
 const server = express(); // Cria uma instância do servidor Express.
 const port = 3000; // Define a porta em que o servidor irá escutar.
@@ -18,12 +19,12 @@ server.get('/testeAve', (req, res) => {
     let ave: Ave = new Ave('Papagaio', 30, 'Masculino', 10);
     res.json(ave);
 })
-
+/*
 // Rota para testar a criação de uma instância de Reptil e retorná-la como JSON.
 server.get('/testeReptil', (req, res) => {
     let reptil: Reptil = new Reptil('Roberto', 2024, 'Feminino', 'ganoide');
     res.json(Reptil);
-})
+}) */
 
 // Rota para testar a criação de uma instância de Mamifero e retorná-la como JSON.
 server.get('/testeMamifero', (req, res) => {
@@ -62,8 +63,19 @@ server.post(`/zoologico`, (req, res) => {
     res.status(200).json(`Zoologico criado`);
 });
 
-// Inicia o servidor na porta especificada e imprime uma mensagem indicando que está escutando.
-server.listen(port, () => {
-    console.log(`Servidor está escutando no endereço http://localhost:${port}`);
+server.get('/reptil', async (req, res) => {
+    const repteis = await Reptil.listarRepteis();
+
+    res.status(200).json(repteis);
 })
 
+new DatabaseModel().testeConexao().then((resbd)  => {
+  if(resbd) { 
+    // Resposta se o servidor está online
+    server.listen(port, () => {
+        console.log(`Servidor está escutando no endereço http://localhost:${port}`);
+    });
+ } else { 
+    console.log( "Não foi possivel conetar ao banco de dados") ;
+  }
+})
