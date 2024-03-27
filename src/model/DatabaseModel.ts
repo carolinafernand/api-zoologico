@@ -11,11 +11,11 @@ export class DatabaseModel {
 
     constructor() {
         this._config = {
-            user: 'postgres',
-            host: 'localhost',
-            database: 'zoologico ',
-            password: 'admin',
-            port: 5432,
+            user: process.env.DB_USER,
+            host: process.env.DB_HOST,
+            database: process.env.DB_NAME,
+            password: process.env.DB_PASSWORD,
+            port: process.env.POSTGRES_PORTDB_PORT,
             max: 10,
             idleTimoutMillis: 10000
         }

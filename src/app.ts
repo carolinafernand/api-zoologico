@@ -9,7 +9,7 @@ import { Zoologico } from './model/Zoologico';
 import { DatabaseModel } from './model/DatabaseModel';
 
 const server = express(); // Cria uma instância do servidor Express.
-const port = 3000; // Define a porta em que o servidor irá escutar.
+const port = 5432; // Define a porta em que o servidor irá escutar.
 
 server.use(express.json()); // Middleware para interpretar JSON em requisições.
 server.use(cors()); // Middleware para habilitar requisições entre diferentes origens.
